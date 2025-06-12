@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import "../App.css";
 import Aurora from "../components/Aurora.jsx";
 import ClickSpark from "../components/ClickSpark.jsx";
@@ -8,67 +8,76 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import EmailIcon from "@mui/icons-material/Email";
 
-const items = [
-  { icon: <HomeIcon size={18} />, label: "Home" },
-  { icon: <HelpOutlineIcon size={18} />, label: "Archive" },
-  { icon: <CalendarTodayIcon size={18} />, label: "Profile" },
-  { icon: <EmailIcon size={18} />, label: "Settings" },
+
+const Layout = () => {
+  const navigate = useNavigate();
+
+  const items = [
+  { icon: <HomeIcon size={18} />, label: "Home", onClick: () => navigate("/") },
+  { icon: <HelpOutlineIcon size={18} />, label: "View All Exams", onClick: () => window.open("https://www.uco.edu/admissions/dates/exams/", "_blank", "noopener,noreferrer") },
+  { icon: <CalendarTodayIcon size={18} />, label: "Schedule", onClick: () => navigate("/schedule")  },
+  { icon: <EmailIcon size={18} />, label: "Contact", onClick: () => navigate("/contact")  },
 ];
 
-const Layout = () => (
-  <ClickSpark
-    sparkColor="#fff"
-    sparkSize={10}
-    sparkRadius={15}
-    sparkCount={8}
-    duration={400}
-  >
-    <div
-      style={{
-        position: "relative",
-        minHeight: "100vh",
-        width: "100vw",
-        overflow: "hidden",
-      }}
+  const handleItemClick = (item) => {
+    if (item.to) navigate(item.to);
+  };
+
+  return (
+    <ClickSpark
+      sparkColor="#fff"
+      sparkSize={10}
+      sparkRadius={15}
+      sparkCount={8}
+      duration={400}
     >
-      {/* Aurora as background */}
-      <Aurora
-        colorStops={["#1628b1", "#eee617", "#1628b1"]}
-        blend={0.5}
-        amplitude={3.0}
-        speed={0.5}
+      <div
         style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
+          position: "relative",
+          minHeight: "100vh",
           width: "100vw",
-          height: "100vh",
-          zIndex: 0,
-          pointerEvents: "none",
+          overflow: "hidden",
         }}
-      />
-      {/* Foreground content */}
-      <div style={{ position: "relative", zIndex: 1, minHeight: "100vh" }}>
-        <Outlet />
-        <div
+      >
+        {/* Aurora as background */}
+        <Aurora
+          colorStops={["#1628b1", "#eee617", "#1628b1"]}
+          blend={0.5}
+          amplitude={3.0}
+          speed={0.5}
           style={{
             position: "fixed",
+            top: 0,
             left: 0,
-            bottom: 0,
             width: "100vw",
-            zIndex: 10,
+            height: "100vh",
+            zIndex: 0,
+            pointerEvents: "none",
           }}
-        >
-          <Dock
-            items={items}
-            panelHeight={68}
-            baseItemSize={50}
-            magnification={70}
-          />
+        />
+        {/* Foreground content */}
+        <div style={{ position: "relative", zIndex: 1, minHeight: "100vh" }}>
+          <Outlet />
+          <div
+            style={{
+              position: "fixed",
+              left: 0,
+              bottom: 0,
+              width: "100vw",
+              zIndex: 10,
+            }}
+          >
+            <Dock
+              items={items}
+              panelHeight={68}
+              baseItemSize={50}
+              magnification={70}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  </ClickSpark>
-);
+    </ClickSpark>
+  );
+};
 
 export default Layout;

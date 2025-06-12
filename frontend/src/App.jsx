@@ -4,6 +4,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Layout from "./pages/Layout.jsx";
 import Home from "./pages/Home.jsx";
+import ViewAllExam from "./pages/ViewAllExams.jsx";
+import Schedule from "./pages/Schedule.jsx";
+import Contact from "./pages/Contact.jsx";
+import NoPage from "./pages/NoPage.jsx";
 
 function App() {
   return (
@@ -11,9 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          {/* <Route path="blogs" element={<Blogs />} />
+          <Route path="viewallexams" element={<ViewAllExam />} />
+          <Route path="schedule" element={<Schedule />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} /> */}
+          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

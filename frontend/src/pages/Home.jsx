@@ -57,7 +57,7 @@ const Home = () => {
           rotateAmplitude={25}
           scaleOnHover={1.2}
           showMobileWarning={false}
-          showTooltip={true}
+          showTooltip={false}
           displayOverlayContent={false}
           overlayContent={
             <p className="tilted-card-demo-text">UCO Bronchos</p>
@@ -74,7 +74,7 @@ const Home = () => {
           rotateAmplitude={25}
           scaleOnHover={1.2}
           showMobileWarning={false}
-          showTooltip={true}
+          showTooltip={false}
           displayOverlayContent={false}
           overlayContent={
             <p className="tilted-card-demo-text">Merge</p>
