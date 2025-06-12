@@ -40,10 +40,12 @@ I created this app to explore financial literacy tools while improving my full-s
 
 ## 🛠️ Tech Stack
 
-**Frontend:** React, Tailwind CSS  
+**Frontend:** React
 **Backend:** Node.js, Express.js  
 **Database:** MongoDB  
-**Dev Tools:** Docker, Git, GitHub, Figma
+**Dev Tools:** Git, GitHub
+**React Components:** react-social-icons, Material UI, React Bits
+
 
 ---
 
