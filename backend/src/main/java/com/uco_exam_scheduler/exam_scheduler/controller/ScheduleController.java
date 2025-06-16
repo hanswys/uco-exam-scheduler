@@ -4,6 +4,7 @@ import com.uco_exam_scheduler.exam_scheduler.model.Schedule;
 import com.uco_exam_scheduler.exam_scheduler.repository.ScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/schedule")
@@ -16,5 +17,10 @@ public class ScheduleController {
     @PostMapping
     public Schedule saveSchedule(@RequestBody Schedule schedule) {
         return scheduleRepository.save(schedule);
+    }
+
+    @GetMapping
+    public List<Schedule> getAllSchedules() {
+        return scheduleRepository.findAll();
     }
 }
