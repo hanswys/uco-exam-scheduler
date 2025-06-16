@@ -3,7 +3,9 @@ import GradientText from "../components/GradientText.jsx";
 import { SocialIcon } from 'react-social-icons'
 import VariableProximity from '../components/VariableProximity.jsx';
 import { useRef } from "react";
+import emailjs from '@emailjs/browser';
 
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const socialLinks = [
   {
@@ -26,6 +28,29 @@ const socialLinks = [
   }
 ];
 
+const handleSubmit = (e, form, setForm) => {
+  e.preventDefault();
+  emailjs.send(
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    {
+      name: form.name,
+      email: form.email,
+      title: form.subject,
+      message: form.message,
+    },
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+  ).then(
+    (result) => {
+      alert('Message sent!');
+      setForm({ name: '', email: '', subject: '', message: '' });
+    },
+    (error) => {
+      alert('Failed to send message. Please try again.');
+    }
+  );
+};
+
 const Contact = () => {
   const containerRef = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -33,12 +58,6 @@ const Contact = () => {
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Message sent!');
-    setForm({ name: '', email: '', subject: '', message: '' });
   };
 
   return (
@@ -74,15 +93,15 @@ const Contact = () => {
             </div>
       
       <form
-        onSubmit={handleSubmit}
-        style={{
-          maxWidth: 400,
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      onSubmit={e => handleSubmit(e, form, setForm)}
+      style={{
+        maxWidth: 400,
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
         <div style={{ width: "100%"}}>
           <label style={{ display: "block", marginBottom: 2 }}>Name:</label>
           <input
@@ -125,7 +144,7 @@ const Contact = () => {
           />
         </div>
         <button type="submit" style={{ alignSelf: "center" }}>Send</button>
-      </form>
+    </form>
       <div style={{ marginTop: 32, textAlign: "center", width: "100%" }}>
         <h4>Connect with me:</h4>
         <div style={{ display: "flex", justifyContent: "center", gap: 24 }}>
