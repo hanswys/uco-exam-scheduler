@@ -1,9 +1,115 @@
-import React from 'react'
+import React, { useState } from 'react';
+import GradientText from "../components/GradientText.jsx";
+import { useRef } from "react";
+import VariableProximity from '../components/VariableProximity.jsx';
+
+
+
 
 const Schedule = () => {
-  return (
-    <div>Schedule</div>
-  )
-}
+  const [form, setForm] = useState({
+    subject: '',
+    date: '',
+    time: ''
+  });
+  const containerRef = useRef(null);
 
-export default Schedule
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSchoolSite = () => {
+    window.open('https://www.uco.edu/admissions/dates/exams/', '_blank', 'noopener,noreferrer');
+  };
+
+  return (
+    <div style={{
+      maxWidth: 500,
+      margin: "40px auto",
+      padding: 24,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      borderRadius: 12,
+      boxShadow: "0 2px 12px rgba(0,0,0,0.07)"
+    }}>
+      <GradientText
+              colors={["#1628b1", "#eee617", "#1628b1", "#eee617", "#1628b1"]}
+              animationSpeed={7}
+              showBorder={false}
+              className="custom-class"
+            >
+              Schedule an Exam
+              </GradientText>
+      <div ref={containerRef} style={{ textAlign: "center", marginBottom: 24  }}>
+                    <VariableProximity
+                      label={
+                        "Schedule your exams with ease! Seamless exports to any Calendar."
+                      }
+                      className={"variable-proximity-demo"}
+                      fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                      toFontVariationSettings="'wght' 1000, 'opsz' 40"
+                      containerRef={containerRef}
+                      radius={100}
+                      falloff="linear"
+                    />
+                  </div>
+      <form style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        gap: 16
+      }}>
+        <div>
+          <label>Subject:</label>
+          <input
+            name="subject"
+            value={form.subject}
+            onChange={handleChange}
+            required
+            style={{ width: "100%", marginTop: 4, marginBottom: 12 }}
+          />
+        </div>
+        <div>
+          <label>Date:</label>
+          <input
+            name="date"
+            type="date"
+            value={form.date}
+            onChange={handleChange}
+            required
+            style={{ width: "100%", marginTop: 4, marginBottom: 12 }}
+          />
+        </div>
+        <div>
+          <label>Time:</label>
+          <input
+            name="time"
+            type="time"
+            value={form.time}
+            onChange={handleChange}
+            required
+            style={{ width: "100%", marginTop: 4, marginBottom: 12 }}
+          />
+        </div>
+      </form>
+      <button
+        style={{
+          marginTop: 24,
+          padding: "0.6em 1.2em",
+          fontSize: "1em",
+          borderRadius: 8,
+          background: "#1628b1",
+          color: "#fff",
+          border: "none",
+          cursor: "pointer"
+        }}
+        onClick={handleSchoolSite}
+      >
+        See Official Exam Timings
+      </button>
+    </div>
+  );
+};
+
+export default Schedule;
