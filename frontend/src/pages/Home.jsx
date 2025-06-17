@@ -4,6 +4,8 @@ import VariableProximity from "../components/VariableProximity.jsx";
 import TiltedCard from "../components/TiltedCard.jsx";
 import UCOBronchos from "../assets/appleicon.png";
 import Merge from "../assets/googleicon.png";
+import UCO from "../assets/UCO_Bronchos_logo.svg.png";
+
 
 const Home = () => {
   const containerRef = useRef(null);

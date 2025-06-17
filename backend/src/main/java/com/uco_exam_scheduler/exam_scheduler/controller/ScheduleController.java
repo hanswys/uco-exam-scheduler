@@ -23,4 +23,23 @@ public class ScheduleController {
     public List<Schedule> getAllSchedules() {
         return scheduleRepository.findAll();
     }
+
+    @DeleteMapping
+    public void deleteAllSchedules() {
+        scheduleRepository.deleteAll();
+    }
+
+    @PutMapping("/{id}")
+    public Schedule updateSchedule(@PathVariable Long id, @RequestBody Schedule updated) {
+        Schedule schedule = scheduleRepository.findById(id).orElseThrow();
+        schedule.setSubject(updated.getSubject());
+        schedule.setDate(updated.getDate());
+        schedule.setTime(updated.getTime());
+        return scheduleRepository.save(schedule);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteSchedule(@PathVariable Long id) {
+        scheduleRepository.deleteById(id);
+    }
 }
