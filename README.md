@@ -34,7 +34,17 @@ I created this app to explore financial literacy tools while improving my full-s
 
 🔗 [View Demo](https://your-live-demo-link.com)
 
-🖼️ _Screenshots can go here if you want_
+Home UI
+<img width="1470" alt="Screenshot 2025-06-17 at 1 20 11 AM" src="https://github.com/user-attachments/assets/93302dfa-8c25-44fc-8e24-37366d3632e5" />
+
+UCO Official Exam Timing (Summer 2025)
+<img width="1470" alt="Screenshot 2025-06-17 at 1 23 02 AM" src="https://github.com/user-attachments/assets/fa7e82a2-b56e-49e1-8bc1-70e72591adb6" />
+
+Scheduling Page
+<img width="1470" alt="Screenshot 2025-06-17 at 1 20 17 AM" src="https://github.com/user-attachments/assets/dbf1a86f-09f7-4d24-95b7-8be91dc77944" />
+
+Contact Page
+<img width="1470" alt="Screenshot 2025-06-17 at 1 20 24 AM" src="https://github.com/user-attachments/assets/b5f53728-6384-4f72-b838-dfeb04a31e68" />
 
 ---
 
