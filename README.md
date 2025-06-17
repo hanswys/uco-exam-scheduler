@@ -11,8 +11,8 @@
 - ✅ Save scheduled exams to PostgreSQL via backend API
 - 📝 Display scheduled exams from database in an animated list
 - 📤 Export all scheduled exams to a calendar (.ics bulk download)
-- ✅ Official UCO Exam Schedule Updates based on current semester
-- ✅ Responsive and centered layout for all forms and lists
+- 🕐 Official UCO Exam Schedule Updates based on current semester
+- 🚀 Responsive and centered layout for all forms and lists
 
 ---
 
