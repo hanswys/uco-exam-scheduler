@@ -62,7 +62,7 @@ npm run dev
 
 ## 📸 Screenshots
 
-🚀 Live Demo
+🚀 [Live Demo](https://youtu.be/5lmNEUHRYNo)
 
 Home UI  
 ![Home Screenshot](https://github.com/user-attachments/assets/93302dfa-8c25-44fc-8e24-37366d3632e5)
